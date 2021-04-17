@@ -60,7 +60,7 @@ section img {
   font-size: 10em;
   z-index: 1;
   text-align: center;
-  filter: drop-shadow(10px 5px 2px #000);
+  /* filter: drop-shadow(10px 5px 2px #000); */
 }
 
 #road {
