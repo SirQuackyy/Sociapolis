@@ -10,7 +10,7 @@
     <body style="margin: 0">
         <div class="createJoin">
             <div id="visitor" style="text-align:center">
-                <input id="gameid1" style="font-size:20px; margin-top: 5px;" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
+                <input id="gameid" style="font-size:20px; margin-top: 5px;" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
                 <button id="creategame" style="font-size:20px; margin-top: 5px;" type="button" onclick="joinOrCreateGame()">Create / Join</button>
             </div>
             <div id="information" style="display: none; position: relative; left:-30%;">
@@ -24,7 +24,7 @@
         <script>
             window.onload = function(){
                 const roomHash = window.parent.location.hash.substring(1);
-                document.getElementById("gameid1").value = roomHash;
+                document.getElementById("gameid").value = roomHash;
             }
             const game = new Game({
                 "id": "game",
