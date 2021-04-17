@@ -1,9 +1,38 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<!DOCTYPE HTML>
 
-    </head>
-    <body>
-        
-    </body>
+<html>
+
+<head>
+  <title>Parallax Scrolling Effect</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+  <section>
+    <img src="https://cdn.discordapp.com/attachments/805945769295216681/832890354294325258/161864441888798031.png" id="buildings">
+    <img src="https://cdn.discordapp.com/attachments/805945769295216681/832888324930797618/161864441888798031.png" id="road">
+
+    <h2 id="text"> PROXGAMES </h2>
+  </section>
+
+  <br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
+
+  <script>
+    let buildings = document.getElementById('buildings');
+    let road = document.getElementById('road');
+    let text = document.getElementById('text');
+
+    window.addEventListener('scroll', function () {
+       var value = window.scrollY;
+       buildings.style.top = -value * 0.15 + 'px';
+       road.style.top = value * 0.15 + 'px';
+       text.style.top = value * 1 + 'px';
+    });
+  </script>
+</body>
+
 </html>
