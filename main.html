@@ -28,20 +28,47 @@
     });
   </script>
 
-<div id="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-</div>
+<!-- /* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+} -->
 
 <!-- CARDS ON HOMEPAGE : REDIRECT TO GAMES -->
 <!-- Inspiration: https://codepen.io/robin-dela/pen/jVddbq -->
 
   <div class="container">
-    <a href="pictionary.html"><div class="cover atvImg">
+    <div class="cover atvImg">
       <div class="atvImg-layer" data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/%22Evolution%22_and_life_in_vaporwave_flavours._%2848475685782%29.png/1200px-%22Evolution%22_and_life_in_vaporwave_flavours._%2848475685782%29.png"></div>
       <div class="atvImg-layer" data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/%22Evolution%22_and_life_in_vaporwave_flavours._%2848475685782%29.png/1200px-%22Evolution%22_and_life_in_vaporwave_flavours._%2848475685782%29.png"> </div>
-    </div></a>
+    </div>
 
     <div class="cover atvImg">
         <div class="atvImg-layer" data-img="https://64.media.tumblr.com/287ade4fa061ed83959a05f18f6dedda/5f9ea862914d8e5b-0c/s1280x1920/f875e82473fbe3711cd5caa0bd115af864ce0cb0.jpg"></div>
@@ -52,6 +79,8 @@
       <h2 class="cardText"> PICTIONARY </h2> 
       <h2 class="cardText2"> WOULD YOU RATHER </h2>
     </div>
+
+    <!-- <br> <br> <br> <br> <br> -->
 
     <div class="cover atvImg">
         <div class="atvImg-layer" data-img="https://i.pinimg.com/736x/8d/9b/71/8d9b7169899fda047546e8316750c890.jpg"></div>
