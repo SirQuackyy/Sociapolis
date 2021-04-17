@@ -2,6 +2,7 @@ if (!location.hash) {
     location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
   }
   const roomHash = location.hash.substring(1);
+  document.getElementById("gameid").value = roomHash;
     
   // TODO: Replace with your own channel ID
   const drone = new ScaleDrone('FRtFMi91zAmFRMrp');
