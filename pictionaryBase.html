@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=9">
+        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui shrink-to-fit=no" />
+        <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+        <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
+        <script src="./pictionary.js"></script>
+    </head>
+    <body style="margin: 0">
+        <div class="createJoin">
+            <div id="visitor" style="text-align:center">
+                <input id="gameid" style="font-size:20px; margin-top: 5px;" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
+                <button id="creategame" style="font-size:20px; margin-top: 5px;" type="button" onclick="joinOrCreateGame()">Create / Join</button>
+            </div>
+            <div id="information" style="display: none; position: relative; left:-30%;">
+                Game ID:
+            </div>
+        </div>
+        <div id="ishost" style="position: absolute; background-color: rgb(0, 0, 0); color: #FFFFFF; padding: 10px; bottom: 10px; right: 10px;">
+            Not in a game...
+        </div>
+        <div id="game" style="margin: 0; padding: 0"></div>
+        <script>
+            window.onload = function(){
+                const roomHash = location.hash.substring(1);
+                console.log(location.hash);
+                console.log(roomHash);
+                document.getElementById("gameid").value = roomHash;
+                console.log("Here");
+                console.log(document.getElementById("gameid").value);
+            }
+            const game = new Game({
+                "id": "game",
+                "width": window.innerWidth,
+                "height": window.innerHeight,
+                "realmAppId": "proxgames-xxocf",
+                "databaseName": "mongo-draws",
+                "collectionName": "game"
+            }); 
+            
+            async function joinOrCreateGame() {
+                try {
+                    let result = await game.joinOrCreateGame(document.getElementById("gameid").value);
+                    document.getElementById("ishost").innerHTML = result.authId == result.owner_id ? "You're the host!" : "You are not the host!";
+                    document.getElementById("visitor").style.display = "none";
+                    document.getElementById("information").innerHTML = "Game ID: " + document.getElementById("gameid").value;
+                    document.getElementById("information").style.display = "block";
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+
+            function joinOrCreateGameKeyPress(event) {
+                if(event.keyCode == 13) {
+                    joinOrCreateGame();
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>

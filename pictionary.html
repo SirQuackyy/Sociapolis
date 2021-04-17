@@ -2,15 +2,12 @@
 <html>
     <head>
         <script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
-    <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=9">
-        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui shrink-to-fit=no" />
-        <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
-        <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
-        <script src="./pictionary.js"></script>
+        <meta charset="utf-8">
         <style>
             body {
               background-image: url("https://i.redd.it/m55itjyd45j01.jpg");
+              background-size: 100%;
+              background-repeat: no-repeat;
               background-color: black;
               max-height: 100vh;
               margin-left: 10px;
@@ -35,7 +32,9 @@
                 float: left;
                 margin-left: 2%;
                 margin-top: 2%;
+                z-index: 2;
             } 
+           
             #remoteVideo {
                 float: right;
                 margin-right: 2%;
@@ -53,7 +52,7 @@
                 float: bottom;
                 margin: 0%;
                 width: 100%;
-                font-size: 10px;
+                font-size: 20px;
                 position: relative;
                 margin-left: -100%;
             }
@@ -66,60 +65,7 @@
                 color: #FFFFFF;
             }
           </style>
-    </head>
-    <body style="margin: 0">
-        <div class="copy">Send your URL to a friend to start!</div>
-        <div class="createJoin">
-            <div id="visitor">
-                <input id="gameid" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
-                <button id="creategame" type="button" onclick="joinOrCreateGame()">Create / Join</button>
-            </div>
-            <div id="information" style="display: none; position: relative; left:-30%;">
-                Game ID:
-            </div>
-        </div>
-        <div class="rc">
-          <video id="localVideo" autoplay muted></video>
-          <video id="remoteVideo" autoplay></video>
-        </div>
-        <div id="ishost" style="position: absolute; background-color: rgb(0, 0, 0); color: #FFFFFF; padding: 10px; bottom: 10px; right: 10px;">
-            Not in a game...
-        </div>
-        <div id="game" style="margin-top: 100px; padding: 0"></div>
-        <script>
-            const game = new Game({
-                "id": "game",
-                "width": window.innerWidth,
-                "height": window.innerHeight,
-                "realmAppId": "proxgames-xxocf",
-                "databaseName": "mongo-draws",
-                "collectionName": "game"
-            });
-
-            async function joinOrCreateGame() {
-                if(!document.getElementById("gameid").value || document.getElementById("gameid").value == "") {
-                    return alert("The Game ID Must Not Be Empty");
-                }
-                try {
-                    let result = await game.joinOrCreateGame(document.getElementById("gameid").value);
-                    document.getElementById("ishost").innerHTML = result.authId == result.owner_id ? "You're the host!" : "You are not the host!";
-                    document.getElementById("visitor").style.display = "none";
-                    document.getElementById("information").innerHTML = "Game ID: " + document.getElementById("gameid").value;
-                    document.getElementById("information").style.display = "block";
-                } catch (e) {
-                    console.error(e);
-                }
-            }
-
-            function joinOrCreateGameKeyPress(event) {
-                if(event.keyCode == 13) {
-                    joinOrCreateGame();
-                    return false;
-                }
-            }
-        </script>
-        <script src="script.js"></script>
-
+          
         <!-- SCOREBOARD -->
         <style>
             body#scoreboard {background-color:rgb(245, 252, 252); }
@@ -155,30 +101,47 @@
             border-width:thin;
             }
         </style>
+    </head>
+    <body style="margin: 0">
+        <div class="copy">Send your URL to a friend to start!</div>
+            
+            <class="rc">
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+        
+        <script src="script.js"></script>
+
         <tr>
             <br> <br> <br> <br> <br> 
             <td>
-              <center> <table id="scoreboard">
-                <tr id="scoreboard">
-                  <th colspan="5"> SCOREBOARD </th>
-                </tr>
-          
-                <tr>  
-                  <td class="PlayerNames" id="player"> <center> You </td>
-                  <td class="PlayerNames" id="player2"> <center> Player </td>
-                </tr>
-          
-                <tr id="scoreboard1">
-                  <td height="50" font-size="30px" id="scoredisplay1"> <center> 0 </td>
-                  <td height="50" font-size="30px" id="scoredisplay2"> <center> 0 </td>
-                </tr>
-          
-                <tr id="padding">
-                  <td height="40"> <center> <button class="score" onclick="addscore1();"> Add Score </button> </td>
-                  <td height="40"> <center> <button class="score" onclick="addscore2();"> Add Score </button> </td>
-                </tr>
-              </table> </center> <br> 
+                <center> <table id="scoreboard">
+                    <tr id="scoreboard">
+                    <th colspan="5"> SCOREBOARD </th>
+                    
+                    <tr></tr>
+                        <td class="PlayerNames" id="player"> <center> You </td>
+                        <td class="PlayerNames" id="player2"> <center> Player </td>
+                    </tr>
+
+                    <tr id="scoreboard1">
+                    <td height="50" font-size="30px" id="scoredisplay1"> <center> 0 </td>
+                    <td height="50" font-size="30px" id="scoredisplay2"> <center> 0 </td>
+                    </tr>
+
+                    <tr id="padding">
+                    <td height="40"> <center> <button class="score" onclick="addvalue(1);"> Add Score </button> </td>
+                    <td height="40"> <center> <button class="score" onclick="addvalue(1);"> Add Score </button> </td>
+                    </tr>
+                </table> </center> <br> 
             </td>
-            </td>
+        </tr>
+        
+        <iframe src="pictionaryBase.html" height="652px" width="99.5%" cell-padding="10"> 
+        </iframe>
+
+        <script>
+
+        </script>
     </body>
 </html>
