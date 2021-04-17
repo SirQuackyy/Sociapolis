@@ -23,12 +23,8 @@
         <div id="game" style="margin: 0; padding: 0"></div>
         <script>
             window.onload = function(){
-                const roomHash = location.hash.substring(1);
-                console.log(location.hash);
-                console.log(roomHash);
+                const roomHash = window.parent.location.hash.substring(1);
                 document.getElementById("gameid").value = roomHash;
-                console.log("Here");
-                console.log(document.getElementById("gameid").value);
             }
             const game = new Game({
                 "id": "game",
