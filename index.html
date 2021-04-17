@@ -7,7 +7,6 @@
   <style>
     body {
       background: #0098ff;
-      display: flex;
       height: 100vh;
       margin: 0;
       align-items: center;
@@ -16,12 +15,17 @@
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
     video {
-      max-width: calc(50% - 100px);
-      margin: 0 50px;
-      box-sizing: border-box;
-      border-radius: 2px;
-      padding: 0;
-      background: white;
+        border-radius: 50%;
+        object-fit: cover;
+        width: 30%;
+        height: 50%;
+        margin-top: 2%;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding: 0;
+        background: white;
+        display: flex;
+        top: 50%
     }
     .copy {
       position: fixed;
@@ -35,8 +39,10 @@
 </head>
 <body>
   <div class="copy">Send your URL to a friend to start!</div>
-  <video id="localVideo" autoplay muted></video>
-  <video id="remoteVideo" autoplay></video>
+  <div class="rc">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
