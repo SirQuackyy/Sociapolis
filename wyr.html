@@ -64,9 +64,9 @@
         width: 1200px;
         margin: 10px;
         height: 200%;
-        text-align: left;
+        text-align: center;
         display: inline-block;
-        /* margin-left: 6%; */
+        margin-left: 6%;
     }
 
     .card {
@@ -81,7 +81,6 @@
         max-width: 100%;
         max-height: 100%;
         overflow: hidden;
-        display: inline-block;
     }
 
     #title_text {
@@ -105,7 +104,7 @@
     }
 
     #text {
-      color:  #f22260;
+      color: -webkit-linear-gradient( #16deb9, #f22260 );
       font-size: 3em;
       z-index: 1;
       float: left;
@@ -128,15 +127,14 @@
         <script src="wyrScript.js"></script>
     
     <div class="card_collection">    
-        <div class="card">
+        <div class="card card--front">
             <div class="title"> 
               <h2 id="title_text"> 
                   Loading...
               </h2>
-              <img src='' width=100% height=100% id="background" style="object-fit: cover;"> 
+              <img src='' width=100% height=100% id="background" style="object-fit: cover;">
             </div>  
         </div>
-      </div>
       <div class="card card-1">
         <div class="title">
             <h2 id="title_text2">
