@@ -28,7 +28,7 @@ class Game {
     }
     async createScene() {
         this.graphics = this.add.graphics();
-        this.graphics.lineStyle(4, 0x00aa00);
+        this.graphics.lineStyle(4, 0x04d9ff);
         this.strokes.forEach(stroke => {
             this.path = new Phaser.Curves.Path();
             this.path.fromJSON(stroke);
@@ -48,11 +48,10 @@ class Game {
         });
     }
     updateScene() {
-        if(this.authId == this.ownerId) {
+        // if(this.authId == this.ownerId) {
             if(!this.input.activePointer.isDown && this.isDrawing) {
                 this.collection.updateOne(
                     {
-                        "owner_id": this.authId,
                         "_id": this.gameId
                     },
                     {
@@ -71,7 +70,11 @@ class Game {
                 }
                 this.path.draw(this.graphics);
             }
-        }
+        // }
+    }
+
+    async clearScene() {
+        db.collection.update({}, { $set : {'strokes':[] }}, {multi:true} )
     }
 
     async authenticate() {
@@ -129,3 +132,5 @@ class Game {
     }
 
 }
+
+

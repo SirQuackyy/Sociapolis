@@ -10,9 +10,10 @@
     <body style="margin: 0">
         <div class="createJoin">
             <div id="visitor" style="text-align:center">
-                <input id="gameid" style="font-size:20px; margin-top: 5px;" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
-                <button id="creategame" style="font-size:20px; margin-top: 5px;" type="button" onclick="joinOrCreateGame()">Create / Join</button>
+                <input id="gameid" style="font-size:20px; margin-top: 5px; border-radius: 6px; text-align:center;" type="text" placeholder="Game ID" onkeypress="joinOrCreateGameKeyPress(event)" readonly/>
+                <button id="creategame" style="font-size:20px; margin-top: 5px; border-radius: 6px; text-align:center; background-color:#0c043a; color:white;" type="button" onclick="joinOrCreateGame()">Create / Join</button>
             </div>
+            <!-- <button style="text-align:right" id="cleargame" style="font-size:20px; margin-top: 5px;" type="button" onclick="game.clearScene()">Clear</button>"></button> -->
             <div id="information" style="display: none; position: relative; left:-30%;">
                 Game ID:
             </div>
