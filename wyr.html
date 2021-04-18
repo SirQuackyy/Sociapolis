@@ -10,6 +10,11 @@
     </head>
     
     <style>
+    @font-face {
+        font-family: Potra;
+        src: url("fonts/Potra.otf") format("opentype");
+    }
+
     body {
       background: -webkit-linear-gradient( #16deb9, #f22260, #16a5de );
       min-height: 100vh;
@@ -60,69 +65,81 @@
     }
 
     .card_collection{
-        position: relative;
-        width: 1200px;
-        margin: 10px;
-        height: 200%;
-        text-align: center;
-        display: inline-block;
-        margin-left: 6%;
+        display: table;
+        padding-top: 10%;
+        width: 46%;
+        perspective: 45em;
     }
 
-    /* .scene {
-        width:25em;
-        height:35em;
-        perspective: 45em;
+    .scene {
+        width:15em;
+        height:15em;
     }
 
     .scene2 {
-        width:25em;
-        height:35em;
-        perspective: 45em;
-    } */
+        width:15em;
+        height:15em;
+    }
 
     .card {
         background: rgb(244, 255, 250);
         border-radius: 2px;
         display: inline-block;
-        height: 400px;
-        margin: 2rem;
-        position: relative;
-        width: 400px;
+        height: 360px;
+        position: absolute;
+        margin-left: -8rem;
+        width: 360px;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        max-width: 100%;
-        max-height: 100%;
-        overflow: hidden;
-        /* transition: transform 0.5s;
-        transform-style: preserve-3d; */
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
     }
 
     .card2 {
         background: rgb(244, 255, 250);
         border-radius: 2px;
         display: inline-block;
-        height: 400px;
-        margin: 2rem;
-        position: relative;
-        width: 400px;
+        height: 360px;
+        position: absolute;
+        width: 360px;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        max-width: 100%;
-        max-height: 100%;
-        overflow: hidden;
-        /* transition: transform 0.5s;
-        transform-style: preserve-3d; */
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
     }
 
     #title_text {
       font-variant: small-caps;
       font-size: 20px;
+      height: 25%;
       padding: 15px;
+      text-align: center;
+      vertical-align:text-top;
     }
 
     #title_text2 {
       font-variant: small-caps;
-      font-size:20px;
+      font-size: 20px;
+      height: 25%;
       padding: 15px;
+      text-align: center;
+      vertical-align:text-top;
+    }
+
+    #percentage {
+        font-variant: small-caps;
+        font-size: 20px;
+        height: 25%;
+        padding: 15px;
+        text-align: center;
+        vertical-align:text-top;
+    }
+
+    #percentage2 {
+        font-variant: small-caps;
+        font-size: 20px;
+        height: 25%;
+        padding: 15px;
+        text-align: center;
+        vertical-align:text-top;
     }
 
     .card:hover {
@@ -138,23 +155,22 @@
     }
 
     #text {
-      color: -webkit-linear-gradient( #16deb9, #f22260 );
-      font-size: 3em;
-      z-index: 1;
-      float: left;
-      margin-left: 3%;
-      margin-top: 5%;
-      filter: drop-shadow(10px 5px 2px #000);
+        color: #000000;
+        font-size: 3em;
+        z-index: 1;
+        float: left;
+        margin-left: 6%;
+        margin-top: 5%;
+        font-family: 'Potra', sans-serif;
     }
-
-    /* .face {
+    .face {
         width:100%;
         height:100%;
     
         position:absolute;
-    
+
         backface-visibility:hidden;
-    } */
+    }
 
     .front-1 {
         /* background-color:#0379ff; */
@@ -162,7 +178,7 @@
     
     /* Gives style for the back face */
     .back-1 {
-        background-color:#333;
+        background-color:#FFF;
         /* Defines where the other face should be */
         transform: rotateY(180deg);
     }
@@ -173,7 +189,7 @@
     
     /* Gives style for the back face */
     .back-2 {
-        background-color:#333;
+        background-color:#FFF;
         /* Defines where the other face should be */
         transform: rotateY(180deg);
     }
@@ -181,12 +197,40 @@
     /* Event when hovering mouse, transforms to 180 degrees within transition time of 0.5 sec */
     .scene:hover .card {
         transform: rotateY(180deg);
+        backface-visibility:visible;
     }
 
     .scene2:hover .card2 {
         transform: rotateY(180deg);
+        backface-visibility:visible;
     }
-    
+
+    .scene {
+        float: left;
+    }
+
+    .scene2 {
+        float: right;
+    }
+
+    .hiboy {
+        width: 100px;
+        height: 50px;
+        float: right;
+        margin-right: 10px;
+        margin-top: -43px;
+    }
+
+    #or {
+        position: absolute;
+        z-index: 5;
+        font-size: 30px;
+        margin-left: 45%;
+        color: cyan;
+        font-family: 'Potra', sans-serif;
+    }
+
+
     </style>
     
     <body style="margin: 0">
@@ -199,40 +243,41 @@
           <video id="remoteVideo" autoplay></video>
         </div>
         <script src="wyrScript.js"></script>
-    
-    <div class="card_collection">
-        <div class="scene">
-            <div class="card">
-                <div class="face front-1"> 
-                  <h2 id="title_text"> 
-                      Loading...
-                  </h2>
-                  <img src='' width=100% height=100% id="background" style="object-fit: cover;">
-                </div>
-                <div class="face back-1"> 
-                    <h2 id="percentage"> 
-                        0%
-                    </h2>
-                    <img src='' width=100% height=100% id="background-back" style="object-fit: cover;">
+        <div class="card_collection">
+            <div class="scene">
+                <div class="card">
+                    <div class="face front-1"> 
+                      <h2 id="title_text"> 
+                          Loading...
+                      </h2>
+                      <img src='' width=100% height=100% id="background" style="object-fit: cover;">
+                    </div>
+                    <div class="face back-1"> 
+                        <h2 id="percentage"> 
+                            0%
+                        </h2>
+                        <img src='' width=100% height=100% id="background-back" style="object-fit: cover;">
+                    </div>
                 </div>
             </div>
+            <p id="or">OR</p> 
+            <div class="scene2">
+                <div class="card2">
+                    <div class="face front-2">
+                        <h2 id="title_text2">
+                          Loading...
+                        </h2>
+                        <img src='' width=100% height=100% id="background2" style="object-fit: cover;">
+                    </div>
+                    <div class="face back-2">
+                        <h2 id="percentage2">
+                          0%
+                        </h2>
+                        <img src='' width=100% height=100% id="background2-back" style="object-fit: cover;">
+                    </div>
+                </div> 
+            </div>
         </div>
-        <div class="scene2">
-            <div class="card2">
-                <div class="face front-2">
-                    <h2 id="title_text2">
-                      Loading...
-                    </h2>
-                    <img src='' width=100% height=100% id="background2" style="object-fit: cover;">
-                </div>
-                <div class="face back-2">
-                    <h2 id="percentage2">
-                      0%
-                    </h2>
-                    <img src='' width=100% height=100% id="background2-back" style="object-fit: cover;">
-                </div>
-            </div> 
-        </div>
-    </div>
+        <input type="image" src="https://cdn.discordapp.com/attachments/823389501967564801/833313987683942440/Jayr51HH82DPWUUP6KGnqqC9lqKx49MLnk3DpojBRZc6djvU4GNqwyFdJaRpH14qR0nVKLCXpKXCp5m0k3nC-Aj1.png" class="hiboy" onclick="getData()"></input>
   </body>
 </html>
