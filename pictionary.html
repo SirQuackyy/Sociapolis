@@ -20,7 +20,7 @@
                 /* position: absolute; */
                 object-fit: cover;
                 width: 25%;
-                height: 50%;
+                max-height: 50%;
                 box-sizing: border-box;
                 border-radius: 3px;
                 padding: 0;
@@ -30,15 +30,15 @@
             }
             #localVideo {
                 float: left;
-                margin-left: 2%;
-                margin-top: 5%;
+                margin-left: 1%;
+                margin-top: 1%;
                 z-index: 2;
             } 
            
             #remoteVideo {
                 float: right;
-                margin-right: 2%;
-                margin-top: 5%;
+                margin-right: 1%;
+                margin-top: 1%;
             }
             .copy {
               position: fixed;
@@ -71,7 +71,9 @@
             body#scoreboard {background-color:rgb(245, 252, 252); }
 
             table#scoreboard {
-            width:40%; border-color:rgb(1, 29, 61);
+            width:40%; 
+            border-color:rgb(1, 29, 61);
+            margin-top:-5%;
             }
 
             tr#scoreboard1 {
@@ -201,27 +203,29 @@
                     </tr>
 
                     <tr id="scoreboard1">
-                    <td height="50" font-size="30px" id="totalscore1"> <center> -1 </td>
-                    <td height="50" font-size="30px" id="totalscore2"> <center> -1 </td>
+                    <td height="50" font-size="30px" id="totalscore1"> <center>0 </td>
+                    <td height="50" font-size="30px" id="totalscore2"> <center>0</td>
                     </tr>
 
                     <tr id="padding">
                     <td height="40"> <center> 
-                        <button class="score" onclick="subtractscore1();"> - </button>
-                        <button class="score" onclick="addscore1();"> +1 </button> 
-                        <button class="score" onclick="setToZero('totalscore1')" style="font-size:13px;"> &#11119; </button> 
+                        <button class="score" onclick="subtractscore1();"> - 1 </button>
+                        <button class="score" onclick="setToZero('totalscore1')" style="font-size:16px;"> &#11119; </button> 
+                        <button class="score" onclick="addscore1();"> + 1 </button> 
+                        
                     </td>
                     <td height="40"> <center> 
-                        <button class="score" onclick="subtractscore2();"> - </button>
-                        <button class="score" onclick="addscore2();"> +1 </button>
-                        <button class="score" onclick="setToZero('totalscore2');" style="font-size:13px;"> &#11119; </button> 
+                        <button class="score" onclick="subtractscore2();"> - 1 </button>
+                        <button class="score" onclick="setToZero('totalscore2');" style="font-size:16px;"> &#11119; </button> 
+                        <button class="score" onclick="addscore2();"> + 1 </button>
+                        
                     </td>
                     </tr>
                 </table> </center> <br> 
             </td>
         </tr>
         
-        <iframe src="pictionaryBase.html" style="height:420px; width:99.5%; padding:0px; margin-top:-20px; position:absolute; z-index:1;"> 
+        <iframe src="pictionaryBase.html" style="height:585px; width:99.5%; padding:0px; margin-top:5px; z-index:1;"> 
             <button style="text-align:right" id="cleargame" style="font-size:20px; margin-top: 10px;" type="button" onclick="game.clearScene()">Clear</button>
         </iframe>
 

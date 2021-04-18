@@ -1,12 +1,12 @@
 @font-face {
-    font-family: Anurati-Regular;
-    src: url("fonts/Anurati-Regular.otf") format("opentype");
+    font-family: Potra;
+    src: url("fonts/Potra.otf") format("opentype");
   }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Anurati-Regular', sans-serif;
+  font-family: 'Potra', sans-serif;
 }
 
 body {
@@ -176,7 +176,7 @@ section img {
   font-size: 4em;
   z-index: 3;
   text-align: left;
-  margin-left: 5%;
+  margin-left: 7%;
   filter: drop-shadow(10px 5px 2px #000);
 }
 
@@ -185,7 +185,7 @@ section img {
   font-size: 2.8em;
   z-index: 3;
   text-align: left;
-  margin-left: 3.5%;
+  margin-left: 12%;
   filter: drop-shadow(10px 5px 2px #000);
 }
 
@@ -194,7 +194,16 @@ section img {
   font-size: 2.2em;
   z-index: 3;
   text-align: left;
-  margin-left: 0;
+  margin-left: 3%;
+  filter: drop-shadow(10px 5px 2px #000);
+}
+
+.cardText4 {
+  color: rgb(79, 255, 237);
+  font-size: 4.5em;
+  z-index: 3;
+  text-align: left;
+  margin-left: 12%;
   filter: drop-shadow(10px 5px 2px #000);
 }
 

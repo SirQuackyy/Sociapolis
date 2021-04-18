@@ -18,10 +18,10 @@
   "homepage": "https://github.com/AirWolfXD/ProxGames#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^8.4.1",
     "http": "^0.0.1-security",
     "path": "^0.12.7",
     "socket.io": "^4.0.1"
   },
-  "devDependencies": {},
   "description": ""
 }
