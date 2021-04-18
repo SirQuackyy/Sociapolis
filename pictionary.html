@@ -64,6 +64,30 @@
                 padding:5px; 
                 color: #FFFFFF;
             }
+
+            .return {
+                background-color: #04d9ff; 
+                padding:.3em;
+                -moz-border-radius:5px; 
+                -webkit-border-radius:5px; 
+                border-radius:6px; 
+                color:black; 
+                text-decoration:none;
+                border:none; 
+                font-size:20px; 
+                font-family:Roboto;
+                margin-top: 15px;
+                width: 200px;
+            }
+
+            .return:hover {
+                border:solid; 
+                border-color:rgb(1, 29, 61); 
+                background:white; 
+                color:rgb(1, 29, 61); 
+                box-shadow:0px 0x 1px #777;
+                border-width:thin;
+            }            
           </style>
           
         <!-- SCOREBOARD -->
@@ -229,8 +253,6 @@
             <button style="text-align:right" id="cleargame" style="font-size:20px; margin-top: 10px;" type="button" onclick="game.clearScene()">Clear</button>
         </iframe>
 
-        <script>
-
-        </script>
+        <center> <button class="return" onclick="window.location.href='index.html'"> Return to Home</button> </center>
     </body>
 </html>
