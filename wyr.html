@@ -69,6 +69,18 @@
         margin-left: 6%;
     }
 
+    /* .scene {
+        width:25em;
+        height:35em;
+        perspective: 45em;
+    }
+
+    .scene2 {
+        width:25em;
+        height:35em;
+        perspective: 45em;
+    } */
+
     .card {
         background: rgb(244, 255, 250);
         border-radius: 2px;
@@ -81,6 +93,24 @@
         max-width: 100%;
         max-height: 100%;
         overflow: hidden;
+        /* transition: transform 0.5s;
+        transform-style: preserve-3d; */
+    }
+
+    .card2 {
+        background: rgb(244, 255, 250);
+        border-radius: 2px;
+        display: inline-block;
+        height: 400px;
+        margin: 2rem;
+        position: relative;
+        width: 400px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        /* transition: transform 0.5s;
+        transform-style: preserve-3d; */
     }
 
     #title_text {
@@ -99,6 +129,10 @@
         box-shadow: 0 1px 38px rgba(255, 255, 255, 0.6), 0 20px 12px rgba(255, 255, 255, 0.4);
     }
 
+    .card2:hover {
+        box-shadow: 0 1px 38px rgba(255, 255, 255, 0.6), 0 20px 12px rgba(255, 255, 255, 0.4);
+    }
+
     img{
         object-fit: fill;
     }
@@ -113,6 +147,46 @@
       filter: drop-shadow(10px 5px 2px #000);
     }
 
+    /* .face {
+        width:100%;
+        height:100%;
+    
+        position:absolute;
+    
+        backface-visibility:hidden;
+    } */
+
+    .front-1 {
+        /* background-color:#0379ff; */
+    }
+    
+    /* Gives style for the back face */
+    .back-1 {
+        background-color:#333;
+        /* Defines where the other face should be */
+        transform: rotateY(180deg);
+    }
+
+    .front-2 {
+        /* background-color:#0379ff; */
+    }
+    
+    /* Gives style for the back face */
+    .back-2 {
+        background-color:#333;
+        /* Defines where the other face should be */
+        transform: rotateY(180deg);
+    }
+
+    /* Event when hovering mouse, transforms to 180 degrees within transition time of 0.5 sec */
+    .scene:hover .card {
+        transform: rotateY(180deg);
+    }
+
+    .scene2:hover .card2 {
+        transform: rotateY(180deg);
+    }
+    
     </style>
     
     <body style="margin: 0">
@@ -126,26 +200,39 @@
         </div>
         <script src="wyrScript.js"></script>
     
-    <div class="card_collection">    
-        <div class="card card--front">
-            <div class="title"> 
-              <h2 id="title_text"> 
-                  Loading...
-              </h2>
-              <img src='' width=100% height=100% id="background" style="object-fit: cover;">
-            </div>  
+    <div class="card_collection">
+        <div class="scene">
+            <div class="card">
+                <div class="face front-1"> 
+                  <h2 id="title_text"> 
+                      Loading...
+                  </h2>
+                  <img src='' width=100% height=100% id="background" style="object-fit: cover;">
+                </div>
+                <div class="face back-1"> 
+                    <h2 id="percentage"> 
+                        0%
+                    </h2>
+                    <img src='' width=100% height=100% id="background-back" style="object-fit: cover;">
+                </div>
+            </div>
         </div>
-      <div class="card card-1">
-        <div class="title">
-            <h2 id="title_text2">
-              Loading...
-            </h2>
-            <img src='' width=100% height=100% id="background2" style="object-fit: cover;">
+        <div class="scene2">
+            <div class="card2">
+                <div class="face front-2">
+                    <h2 id="title_text2">
+                      Loading...
+                    </h2>
+                    <img src='' width=100% height=100% id="background2" style="object-fit: cover;">
+                </div>
+                <div class="face back-2">
+                    <h2 id="percentage2">
+                      0%
+                    </h2>
+                    <img src='' width=100% height=100% id="background2-back" style="object-fit: cover;">
+                </div>
+            </div> 
         </div>
-      </div> 
     </div>
-
-    
-
   </body>
 </html>

@@ -1,0 +1,45 @@
+/* Scene is a visible setting */
+.scene {
+    width:10em;
+    height:15em;
+    perspective: 45em;
+  }
+
+  /* The card is a preset for the transformation */
+.card {
+    width:100%;
+    height:100%;
+    position:relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+/* Fills everything in scene and defines the text position */
+.face {
+    width:100%;
+    height:100%;
+    
+    color:#FFF;
+    line-height:15em;
+    text-align:center;
+    position:absolute;
+    
+    backface-visibility:hidden;
+}
+  
+/* Gives the style for front face */
+.front {
+    background-color:#0379ff;
+}
+  
+/* Gives style for the back face */
+.back {
+    background-color:#333;
+    /* Defines where the other face should be */
+    transform: rotateY(180deg);
+}
+
+/* Event when hovering mouse, transforms to 180 degrees within transition time of 0.5 sec */
+.scene:hover .card {
+    transform: rotateY(180deg);
+}
